@@ -2,34 +2,6 @@
 
 Full-stack Franchise ve Şube Yönetim Modülü
 
-## 🚀 Özellikler
-
-### Backend (FastAPI + PostgreSQL)
-- ✅ JWT Authentication
-- ✅ RESTful API
-- ✅ Franchise CRUD İşlemleri
-- ✅ Şube/Ofis CRUD İşlemleri
-- ✅ Kullanıcı Profil Yönetimi
-- ✅ Aktivite Logları
-- ✅ Dashboard İstatistikleri
-- ✅ Otomatik Mock Data Yükleme
-
-### Frontend (Next.js 14 + TypeScript + Tailwind CSS)
-- ✅ Modern ve Responsive UI
-- ✅ Dashboard ile İstatistikler
-- ✅ Franchise Yönetimi
-- ✅ Ofis Yönetimi (Danışman Sayıları)
-- ✅ Kullanıcı Profil Sayfası
-- ✅ Aktivite Takibi
-- ✅ PDF/Excel Export
-- ✅ AI Chatbot
-- ✅ Grafikler (Chart.js)
-
-## 📋 Gereksinimler
-
-- Docker Desktop
-- Docker Compose
-
 ## 🔧 Kurulum ve Çalıştırma
 
 ### 1. Projeyi Klonlayın
@@ -61,28 +33,6 @@ Sistem ilk çalıştırıldığında otomatik olarak şunları yükler:
 - 1 Admin kullanıcı
 - 2 Franchise (İstanbul, Ankara)
 - 6 Ofis (rastgele danışman sayıları ile)
-
-## 🏗️ Teknoloji Stack
-
-### Backend
-- Python 3.10+
-- FastAPI
-- PostgreSQL
-- SQLAlchemy
-- Pydantic
-- JWT Authentication
-- Docker
-
-### Frontend
-- Next.js 14 (App Router)
-- TypeScript
-- Tailwind CSS
-- React Hook Form
-- Axios
-- Lucide Icons
-- Chart.js
-- jsPDF
-- XLSX
 
 ## 📁 Proje Yapısı
 
@@ -141,64 +91,13 @@ RTECA/
 - PDF/Excel oluşturma
 - Tam ekran modu
 
-## 🔄 API Endpoints
-
-### Authentication
-- `POST /api/auth/register` - Kullanıcı kaydı
-- `POST /api/auth/login` - Giriş
-- `GET /api/auth/me` - Kullanıcı bilgisi
-- `PUT /api/auth/me` - Profil güncelleme
-
-### Franchises
-- `GET /api/franchises` - Tüm franchise'lar
-- `GET /api/franchises/{id}` - Tek franchise
-- `POST /api/franchises` - Yeni franchise
-- `PUT /api/franchises/{id}` - Franchise güncelleme
-- `DELETE /api/franchises/{id}` - Franchise silme
-
-### Branches
-- `GET /api/branches` - Tüm ofisler
-- `GET /api/branches/{id}` - Tek ofis
-- `POST /api/branches` - Yeni ofis
-- `PUT /api/branches/{id}` - Ofis güncelleme
-- `DELETE /api/branches/{id}` - Ofis silme
-
-### Dashboard
-- `GET /api/dashboard/stats` - İstatistikler
-- `GET /api/dashboard/activities` - Aktivite logları
-
-## 🐳 Docker Komutları
-
-```bash
-# Başlat
-docker-compose up -d
-
-# Durdur
-docker-compose down
-
-# Logları görüntüle
-docker-compose logs -f
-
-# Yeniden başlat
-docker-compose restart
-
-# Veritabanını sıfırla (yeni mock data yükler)
-docker-compose down -v
-docker-compose up -d
-```
-
-## 📝 Notlar
-
-- Mock data otomatik olarak yüklenir (ilk çalıştırmada)
-- Tüm aktiviteler loglanır
-- Dashboard gerçek verilerden beslenir
-- TypeScript strict mode kapalı (hızlı geliştirme için)
 
 ## 👨‍💻 Geliştirici
 
 RTECA Emlak Teknolojileri için geliştirilmiştir.
+Talha Eren Bilikci
 
 ## 📄 Lisans
 
-Bu proje case study amaçlı geliştirilmiştir.
+Bu proje case study amaçlı geliştirilmiştir.Tüm hakları Talha Eren Bilikciye aittir
 
