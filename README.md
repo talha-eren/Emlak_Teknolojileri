@@ -28,7 +28,8 @@ docker-compose up -d
 - **Email:** admin@jokersoft.com
 - **Şifre:** admin123 
 
-
+### Not 
+**Resimler net değilse İmages klasoründen detaylı bakabilirsiniz yada projeyi çalıştırarak test edebilirsiniz**
 
 *Dashboard ekranı aşşağıdaki resimdeki gibi görünür.Uygulamamızda yaptığınız tüm değişiklikler buradan takip edebilirsiniz tablo ve grafiklerden yaralanabilirsiniz*
 <p align="center">
