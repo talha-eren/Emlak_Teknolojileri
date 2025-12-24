@@ -7,7 +7,7 @@ Full-stack Franchise ve Şube Yönetim Modülü
 
 ### 1. Projeyi Klonlayın
 ```bash
-git clone <repository-url>
+git clone https://github.com/talha-eren/RTECA_Emlak_Teknolojileri.git
 cd RTECA
 ```
 
