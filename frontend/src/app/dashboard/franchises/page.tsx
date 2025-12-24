@@ -9,6 +9,7 @@ import { Plus, Edit, Phone, Mail, MapPin, FileText, Download, Printer, Save } fr
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
 import * as XLSX from 'xlsx';
+import { createPDFWithTurkishSupport, addTextToPDF, formatTableData } from '@/lib/pdfUtils';
 
 interface FranchiseForm {
   name: string;
@@ -90,21 +91,21 @@ export default function FranchisesPage() {
   const exportToPDF = () => {
     if (!franchise) return;
     
-    const doc = new jsPDF();
+    const doc = createPDFWithTurkishSupport();
     doc.setFontSize(18);
-    doc.text('Franchise Bilgileri', 14, 20);
+    addTextToPDF(doc, 'Franchise Bilgileri', 14, 20);
     doc.setFontSize(12);
-    doc.text(`Tarih: ${new Date().toLocaleDateString('tr-TR')}`, 14, 30);
+    addTextToPDF(doc, `Tarih: ${new Date().toLocaleDateString('tr-TR')}`, 14, 30);
     
-    const data = [
-      ['Franchise Adı', franchise.name],
-      ['Vergi Numarası', franchise.tax_number],
+    const data = formatTableData([
+      ['Franchise Adi', franchise.name],
+      ['Vergi Numarasi', franchise.tax_number],
       ['Telefon', franchise.phone || '-'],
       ['E-posta', franchise.email || '-'],
       ['Adres', franchise.address || '-'],
-      ['Açıklama', franchise.description || '-'],
+      ['Aciklama', franchise.description || '-'],
       ['Durum', franchise.is_active ? 'Aktif' : 'Pasif']
-    ];
+    ]);
     
     (doc as any).autoTable({
       startY: 40,

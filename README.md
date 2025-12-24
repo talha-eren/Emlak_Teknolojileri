@@ -2,33 +2,6 @@
 
 Full-stack Franchise ve Şube Yönetim Modülü
 
-## 🚀 Özellikler
-
-### Backend (FastAPI + PostgreSQL)
-- ✅ JWT Authentication
-- ✅ RESTful API
-- ✅ Franchise CRUD İşlemleri
-- ✅ Şube/Ofis CRUD İşlemleri
-- ✅ Kullanıcı Profil Yönetimi
-- ✅ Aktivite Logları
-- ✅ Dashboard İstatistikleri
-- ✅ Otomatik Mock Data Yükleme
-
-### Frontend (Next.js 14 + TypeScript + Tailwind CSS)
-- ✅ Modern ve Responsive UI
-- ✅ Dashboard ile İstatistikler
-- ✅ Franchise Yönetimi
-- ✅ Ofis Yönetimi (Danışman Sayıları)
-- ✅ Kullanıcı Profil Sayfası
-- ✅ Aktivite Takibi
-- ✅ PDF/Excel Export
-- ✅ AI Chatbot
-- ✅ Grafikler (Chart.js)
-
-## 📋 Gereksinimler
-
-- Docker Desktop
-- Docker Compose
 
 ## 🔧 Kurulum ve Çalıştırma
 
@@ -53,7 +26,55 @@ docker-compose up -d
 **Mock data otomatik olarak yüklenir:**
 
 - **Email:** admin@jokersoft.com
+- **Şifre:** admin123 
+
+
+
+*Dashboard ekranı aşşağıdaki resimdeki gibi görünür.Uygulamamızda yaptığınız tüm değişiklikler buradan takip edebilirsiniz tablo ve grafiklerden yaralanabilirsiniz*
+<p align="center">
+  <img src="İmages/Dashboard.png" width="600">
+</p>
+
+*Franchise Detayları ekranı aşşağıdaki resimdeki gibi görünür.Bu ekrandan Franchise bilgilerinizi düzenleyebilirsiniz. Ayrıca Pdf ve Excel olarak kayıt edebilirsiniz ve yazdırabilirsiniz*
+
+<p align="center">
+  <img src="İmages/Franchise Detayları.png" width="600">
+</p>
+
+*Ofis Yönetimi ekranı aşşağıdaki resimdeki gibi görünür.Bu ekrandan Ofislerinizi görebilirsiniz,ofislerinizi ekleyebilirsiniz ve düzenleyebilirsiniz. Ayrıca Pdf ve Excel olarak kayıt edebilirsiniz ve yazdırabilirsiniz.Sadece herhangi bir ofisinizin bilgilerinide yazdırabilirsiniz*
+
+<p align="center">
+  <img src="İmages/Ofis Yönetimi.png" width="600">
+</p>
+
+*Profil ekranı aşşağıdaki resimdeki gibi görünür.Bu ekrandan Profilinizi görebilirsiniz bilgilerinizi değiştirebilirsiniz.*
+
+<p align="center">
+  <img src="İmages/Profil.png" width="600">
+</p>
+
+*Giriş ekranı aşşağıdaki resimdeki gibi görünür.Bu ekrandan giriş yapabilirsiniz*
+- **Email:** admin@jokersoft.com
 - **Şifre:** admin123
+
+<p align="center">
+  <img src="İmages/Giriş Ekranı.png" width="600">
+</p>
+
+*Kayıt ekranı aşşağıdaki resimdeki gibi görünür.Bu ekrandan kayıt olabilirsiniz.*
+
+<p align="center">
+  <img src="İmages/Kayıt Ekranı.png" width="600">
+</p>
+
+## EK ÖZELLİK
+*Yardımcı Asistan aşşağıdaki resimdeki gibi görünür.Bu ekran uygulamaya eklenmiş ek özelliktir. Buradan RTECA Asistanı sizlere yönlendirme yapar*
+
+<p align="center">
+  <img src="İmages/Yardımcı Asistan.png" width="600">
+</p>
+
+
 
 ## 📊 Mock Data
 
@@ -62,27 +83,9 @@ Sistem ilk çalıştırıldığında otomatik olarak şunları yükler:
 - 2 Franchise (İstanbul, Ankara)
 - 6 Ofis (rastgele danışman sayıları ile)
 
-## 🏗️ Teknoloji Stack
 
-### Backend
-- Python 3.10+
-- FastAPI
-- PostgreSQL
-- SQLAlchemy
-- Pydantic
-- JWT Authentication
-- Docker
+Projemize giriş yaptıktan sonra 
 
-### Frontend
-- Next.js 14 (App Router)
-- TypeScript
-- Tailwind CSS
-- React Hook Form
-- Axios
-- Lucide Icons
-- Chart.js
-- jsPDF
-- XLSX
 
 ## 📁 Proje Yapısı
 
@@ -141,64 +144,9 @@ RTECA/
 - PDF/Excel oluşturma
 - Tam ekran modu
 
-## 🔄 API Endpoints
-
-### Authentication
-- `POST /api/auth/register` - Kullanıcı kaydı
-- `POST /api/auth/login` - Giriş
-- `GET /api/auth/me` - Kullanıcı bilgisi
-- `PUT /api/auth/me` - Profil güncelleme
-
-### Franchises
-- `GET /api/franchises` - Tüm franchise'lar
-- `GET /api/franchises/{id}` - Tek franchise
-- `POST /api/franchises` - Yeni franchise
-- `PUT /api/franchises/{id}` - Franchise güncelleme
-- `DELETE /api/franchises/{id}` - Franchise silme
-
-### Branches
-- `GET /api/branches` - Tüm ofisler
-- `GET /api/branches/{id}` - Tek ofis
-- `POST /api/branches` - Yeni ofis
-- `PUT /api/branches/{id}` - Ofis güncelleme
-- `DELETE /api/branches/{id}` - Ofis silme
-
-### Dashboard
-- `GET /api/dashboard/stats` - İstatistikler
-- `GET /api/dashboard/activities` - Aktivite logları
-
-## 🐳 Docker Komutları
-
-```bash
-# Başlat
-docker-compose up -d
-
-# Durdur
-docker-compose down
-
-# Logları görüntüle
-docker-compose logs -f
-
-# Yeniden başlat
-docker-compose restart
-
-# Veritabanını sıfırla (yeni mock data yükler)
-docker-compose down -v
-docker-compose up -d
-```
-
-## 📝 Notlar
-
-- Mock data otomatik olarak yüklenir (ilk çalıştırmada)
-- Tüm aktiviteler loglanır
-- Dashboard gerçek verilerden beslenir
-- TypeScript strict mode kapalı (hızlı geliştirme için)
-
-## 👨‍💻 Geliştirici
-
-RTECA Emlak Teknolojileri için geliştirilmiştir.
-
 ## 📄 Lisans
 
 Bu proje case study amaçlı geliştirilmiştir.
+
+## 👨‍💻 Geliştirici : Talha Eren Bilikci
 

@@ -11,6 +11,7 @@ import { LineChart, Line, BarChart, Bar, PieChart, Pie, Cell, XAxis, YAxis, Cart
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
 import * as XLSX from 'xlsx';
+import { createPDFWithTurkishSupport, addTextToPDF, formatTableData } from '@/lib/pdfUtils';
 
 const COLORS = ['#0ea5e9', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6'];
 
@@ -54,27 +55,27 @@ export default function DashboardPage() {
   }, []);
 
   const exportToPDF = () => {
-    const doc = new jsPDF();
+    const doc = createPDFWithTurkishSupport();
     
     doc.setFontSize(18);
-    doc.text('RTECA Emlak Teknolojileri - Dashboard Raporu', 14, 20);
+    addTextToPDF(doc, 'RTECA Emlak Teknolojileri - Dashboard Raporu', 14, 20);
     
     doc.setFontSize(12);
-    doc.text(`Tarih: ${new Date().toLocaleDateString('tr-TR')}`, 14, 30);
+    addTextToPDF(doc, `Tarih: ${new Date().toLocaleDateString('tr-TR')}`, 14, 30);
     
     doc.setFontSize(14);
-    doc.text('İstatistikler', 14, 45);
+    addTextToPDF(doc, 'Istatistikler', 14, 45);
     
-    const statsTable = [
+    const statsTable = formatTableData([
       ['Toplam Franchise', stats?.total_franchises || 0],
-      ['Toplam Şube', stats?.total_branches || 0],
-      ['Toplam Satış', formatCurrency(stats?.total_sales || 0)],
-      ['Bekleyen İstekler', stats?.pending_requests || 0],
-    ];
+      ['Toplam Sube', stats?.total_branches || 0],
+      ['Toplam Satis', formatCurrency(stats?.total_sales || 0)],
+      ['Bekleyen Istekler', stats?.pending_requests || 0],
+    ]);
     
     (doc as any).autoTable({
       startY: 50,
-      head: [['Metrik', 'Değer']],
+      head: [formatTableData([['Metrik', 'Deger']])],
       body: statsTable,
     });
     

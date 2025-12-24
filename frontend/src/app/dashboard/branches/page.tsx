@@ -10,6 +10,7 @@ import { Plus, Eye, Edit, Trash2, Phone, Mail, MapPin, Building2, FileText, Down
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
 import * as XLSX from 'xlsx';
+import { createPDFWithTurkishSupport, addTextToPDF, formatTableData } from '@/lib/pdfUtils';
 
 interface BranchForm {
   franchise_id: number;
@@ -94,22 +95,22 @@ export default function BranchesPage() {
   };
 
   const exportBranchToPDF = (branch: Branch) => {
-    const doc = new jsPDF();
+    const doc = createPDFWithTurkishSupport();
     doc.setFontSize(18);
-    doc.text('Ofis Detayları', 14, 20);
+    addTextToPDF(doc, 'Ofis Detaylari', 14, 20);
     doc.setFontSize(12);
-    doc.text(`Tarih: ${new Date().toLocaleDateString('tr-TR')}`, 14, 30);
+    addTextToPDF(doc, `Tarih: ${new Date().toLocaleDateString('tr-TR')}`, 14, 30);
     
-    const data = [
-      ['Ofis Adı', branch.name],
-      ['Şehir', branch.city],
+    const data = formatTableData([
+      ['Ofis Adi', branch.name],
+      ['Sehir', branch.city],
       ['Telefon', branch.phone || '-'],
       ['E-posta', branch.email || '-'],
       ['Adres', branch.address || '-'],
-      ['Danışman Sayısı', (branch as any).consultant_count || '0'],
+      ['Danisman Sayisi', (branch as any).consultant_count || '0'],
       ['Franchise', getFranchiseName(branch.franchise_id)],
       ['Durum', branch.is_active ? 'Aktif' : 'Pasif']
-    ];
+    ]);
     
     (doc as any).autoTable({
       startY: 40,
@@ -167,11 +168,11 @@ export default function BranchesPage() {
   };
 
   const exportToPDF = () => {
-    const doc = new jsPDF();
+    const doc = createPDFWithTurkishSupport();
     doc.setFontSize(18);
-    doc.text('Şube Listesi', 14, 20);
+    addTextToPDF(doc, 'Sube Listesi', 14, 20);
     doc.setFontSize(12);
-    doc.text(`Tarih: ${new Date().toLocaleDateString('tr-TR')}`, 14, 30);
+    addTextToPDF(doc, `Tarih: ${new Date().toLocaleDateString('tr-TR')}`, 14, 30);
     
     const tableData = branches.map(b => [
       b.name,
@@ -184,8 +185,8 @@ export default function BranchesPage() {
     
     (doc as any).autoTable({
       startY: 40,
-      head: [['Şube Adı', 'Şehir', 'Telefon', 'E-posta', 'Franchise', 'Durum']],
-      body: tableData,
+      head: [formatTableData([['Sube Adi', 'Sehir', 'Telefon', 'E-posta', 'Franchise', 'Durum']])],
+      body: formatTableData(tableData),
     });
     
     doc.save('sube-listesi.pdf');
