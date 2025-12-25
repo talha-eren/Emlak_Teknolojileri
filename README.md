@@ -5,28 +5,99 @@ Full-stack Franchise ve Şube Yönetim Modülü
 
 ## 🔧 Kurulum ve Çalıştırma
 
-### 1. Projeyi Klonlayın
+### Gereksinimler
+
+Projeyi çalıştırmak için aşağıdaki yazılımların sisteminizde yüklü olması gerekmektedir:
+
+- **Docker Desktop** (Windows/Mac için) veya **Docker Engine** (Linux için)
+- **Docker Compose** (genellikle Docker ile birlikte gelir)
+- **Git** (projeyi klonlamak için)
+
+> 💡 **Not:** Docker kurulu değilse, [Docker Desktop'u indirip kurun](https://www.docker.com/products/docker-desktop/)
+
+### Adım Adım Kurulum
+
+#### 1. Projeyi GitHub'dan İndirin
+
 ```bash
-git clone <repository-url>
-cd RTECA
+# Projeyi klonlayın
+git clone https://github.com/talha-eren/RTECA_Emlak_Teknolojileri.git
+cd RTECA-Emlak
 ```
 
-### 2. Docker ile Çalıştırın
+> **Alternatif:** GitHub'dan ZIP olarak indirip açabilirsiniz.
+
+#### 2. Docker'ın Çalıştığını Kontrol Edin
+
+Terminal/PowerShell'de şu komutu çalıştırın:
+
 ```bash
-docker-compose up -d
+docker --version
+docker-compose --version
 ```
 
-### 3. Tarayıcıda Açın
-- **Frontend:** http://localhost:3000
+Her iki komut da versiyon numarası göstermelidir. Eğer hata alırsanız, Docker'ı başlatın.
+
+#### 3. Projeyi Docker ile Başlatın
+
+Proje dizininde (docker-compose.yml dosyasının bulunduğu yerde) şu komutu çalıştırın:
+
+```bash
+# Container'ları build edip başlat (ilk çalıştırmada)
+docker-compose up -d --build
+```
+
+> ⏱️ **İlk çalıştırmada:** Docker image'ları indirilip build edileceği için 5-10 dakika sürebilir.
+
+#### 4. Container'ların Durumunu Kontrol Edin
+
+```bash
+docker-compose ps
+```
+
+```
+
+#### 5. Tarayıcıda Açın
+
+Container'lar başladıktan sonra (yaklaşık 30-60 saniye), tarayıcınızda şu adresleri açın:
+
+- **Frontend Uygulaması:** http://localhost:3000
 - **Backend API:** http://localhost:8000
-- **API Docs:** http://localhost:8000/docs
+- **API Dokümantasyonu (Swagger):** http://localhost:8000/docs
 
-## 🔐 Giriş Bilgileri
+> ⚠️ **Önemli:** İlk açılışta Next.js build işlemi yapılacağı için frontend sayfası birkaç saniye yüklenebilir.
+
+### 🔐 Giriş Bilgileri
 
 **Mock data otomatik olarak yüklenir:**
 
 - **Email:** admin@jokersoft.com
-- **Şifre:** admin123 
+- **Şifre:** admin123
+
+> 📝 **Not:** İlk çalıştırmada backend otomatik olarak veritabanını oluşturur ve örnek verileri yükler.
+
+
+### ❓ Sorun Giderme
+
+**Port zaten kullanımda hatası:**
+- 3000, 8000 veya 5432 portları başka bir uygulama tarafından kullanılıyor olabilir
+- `docker-compose.yml` dosyasındaki port numaralarını değiştirebilirsiniz
+
+**Container başlamıyor:**
+```bash
+# Logları kontrol edin
+docker-compose logs
+
+# Container'ları temizleyip yeniden başlatın
+docker-compose down
+docker-compose up -d --build
+```
+
+**Module not found hatası:**
+- Frontend container'ını yeniden build edin:
+```bash
+docker-compose up -d --build frontend
+``` 
 
 
 

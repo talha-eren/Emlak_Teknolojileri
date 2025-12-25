@@ -8,6 +8,12 @@ COPY package*.json ./
 # Install dependencies
 RUN npm install
 
+# Copy configuration files first
+COPY tsconfig.json ./
+COPY next.config.js ./
+COPY tailwind.config.ts ./
+COPY postcss.config.js ./
+
 # Copy application files
 COPY . .
 

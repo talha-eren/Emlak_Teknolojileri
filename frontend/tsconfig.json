@@ -15,6 +15,7 @@
     "incremental": true,
     "noImplicitAny": false,
     "strictNullChecks": false,
+    "baseUrl": ".",
     "plugins": [
       {
         "name": "next"
