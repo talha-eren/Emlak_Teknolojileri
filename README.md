@@ -99,7 +99,8 @@ docker-compose up -d --build
 docker-compose up -d --build frontend
 ``` 
 
-
+### Not 
+**Resimler net değilse İmages klasoründen detaylı bakabilirsiniz yada projeyi çalıştırarak test edebilirsiniz**
 
 *Dashboard ekranı aşşağıdaki resimdeki gibi görünür.Uygulamamızda yaptığınız tüm değişiklikler buradan takip edebilirsiniz tablo ve grafiklerden yaralanabilirsiniz*
 <p align="center">
