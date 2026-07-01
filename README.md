@@ -1,4 +1,4 @@
-# RTECA Emlak Teknolojileri - Franchise Yönetim Sistemi
+#Emlak Teknolojileri - Franchise Yönetim Sistemi
 
 Full-stack Franchise ve Şube Yönetim Modülü
 
